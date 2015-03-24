@@ -4,16 +4,15 @@
 
 import sqlite3
 
-conn = sqlite3.connect("new.db")
+with sqlite3.connect("new.db") as connection:
+# better than: connection = sqlite3.connect("new.db")
+    c = connection.cursor()
+    c.execute("INSERT INTO population VALUES('New York City', 'NY', 8200000)")
+    c.execute("INSERT INTO population VALUES('San Francisco', 'CA', 80000)")
 
-cursor = conn.cursor()
 
-# insert data
-cursor.execute("INSERT INTO population VALUES('New York City', 'NY', 8200000)")
-cursor.execute("INSERT INTO population VALUES('San Francisco', 'CA', 800000)")
+# no need to commit the changes with the with-as above
+# conn.commit()
 
-# commit the changes
-conn.commit()
-
-# close the database connection
-conn.close()                
+# no need to close either! :D
+# conn.close()       
