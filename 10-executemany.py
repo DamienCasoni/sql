@@ -31,9 +31,9 @@ with sqlite3.connect("new.db") as connection:
         print r[0], r[1], r[2]
         
     # create a table and populate it with data
-
+    c.execute("DROP TABLE IF EXISTS regions")
     c.execute("""CREATE TABLE IF NOT EXISTS regions
-        (city TEXT, regions TEXT)
+        (city TEXT, region TEXT)
         """)
         
     cities = [
@@ -58,7 +58,7 @@ with sqlite3.connect("new.db") as connection:
         
     c.executemany("INSERT INTO regions VALUES(?, ?)", cities)
     
-    c.execute("SELECT * FROM regions ORDER BY regions ASC")
+    c.execute("SELECT * FROM regions ORDER BY region ASC")
     
     rows = c.fetchall()
     

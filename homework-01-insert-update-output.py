@@ -18,11 +18,11 @@ with sqlite3.connect("cars.db") as connection:
     
     # homework 1: insert values in it
     data = [
-    ('Ford', 'Fiesta', 1),
-    ('Ford', 'Break', 3),
-    ('Ford', 'Escort', 4),
+    ('Ford', 'Focus', 1),
+    ('Ford', 'Ranger', 3),
+    ('Ford', 'Avenger', 4),
     ('Honda', 'Civic', 2),
-    ('Honda', 'Break', 4)    
+    ('Honda', 'Accord', 4)    
     ]
     
     cursor.executemany("INSERT INTO inventory VALUES(?, ?, ?)", data)
@@ -30,8 +30,8 @@ with sqlite3.connect("cars.db") as connection:
     # homework 2: update the quantity on 2 of the records     
                 
     cursor.executescript("""
-    UPDATE inventory SET Quantity=8 WHERE Make='Ford' AND Model='Break';
-    UPDATE inventory SET Quantity=0 WHERE Make='Honda' AND Model='Break';
+    UPDATE inventory SET Quantity=8 WHERE Make='Ford' AND Model='Ranger';
+    UPDATE inventory SET Quantity=0 WHERE Make='Honda' AND Model='Civic';
     """)
     
     print "NEW DATA:"
