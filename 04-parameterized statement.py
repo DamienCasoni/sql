@@ -13,7 +13,7 @@ people_values = (
 with sqlite3.connect('test_database.db') as connection:
     c = connection.cursor()
     # .executescript() permet de lancer plus d'une ligne SQL à la fois
-    # contrairement à .execute qui ne lance qu'une ligne
+    # contrairement à execute qui ne lance qu'une ligne
     c.executescript("""
         DROP TABLE IF EXISTS People;
         CREATE TABLE People(FirstName TEXT, LastName TEXT, Age INT);

@@ -16,4 +16,5 @@ with sqlite3.connect("new.db") as connection:
     c.execute("CREATE TABLE employees(firstname TEXT, lastname TEXT)")
     
     # insert data into table
-    c.executemany('INSERT INTO employees(firstname, lastname) values (?, ?)', employees)
+    c.executemany('INSERT INTO employees(firstname, lastname) values (?, ?)', 
+                    employees)
