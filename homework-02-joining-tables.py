@@ -33,11 +33,9 @@ with sqlite3.connect("cars.db") as connection:
     
     # output the car’s make and model on one line, the quantity on another line
     # and then the order_dates on subsequent lines below that
-    
-    # étrangement ne marche pas avec executescript, 
-    # j'ai déjà vu ce problème sur Stackoverflow
     cursor.execute("""SELECT inventory.make, inventory.model, 
-                    inventory.quantity, orders.order_date
+                    inventory.quantity, 
+                    orders.order_date
                     FROM inventory
                     INNER JOIN orders
                     ON inventory.model = orders.model
@@ -46,7 +44,7 @@ with sqlite3.connect("cars.db") as connection:
     rows = cursor.fetchall()
 
     for r in rows:
-        print r[0], r[1]
-        print r[2]
-        print r[3]
+        print r[0], r[1]  # inventory.make, inventory.model
+        print r[2]  # inventory.quantity, 
+        print r[3]  # orders.order_date
         print
