@@ -60,7 +60,8 @@ with sqlite3.connect("new.db") as connection:
     
     c.execute("SELECT * FROM regions ORDER BY region ASC")
     
-    rows = c.fetchall()
-    
-    for r in rows:
+    # rows = c.fetchall()
+    # DAMN! The cursor object works as an iterator,
+    # invoking fetchall() automatically
+    for r in c:
         print r[0], r[1]

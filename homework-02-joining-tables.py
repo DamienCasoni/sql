@@ -37,8 +37,7 @@ with sqlite3.connect("cars.db") as connection:
                     inventory.quantity, 
                     orders.order_date
                     FROM inventory
-                    INNER JOIN orders
-                    ON inventory.model = orders.model
+                    INNER JOIN orders ON inventory.model = orders.model
                     """)
 
     rows = cursor.fetchall()

@@ -16,6 +16,8 @@ with sqlite3.connect("new.db") as connection:
     # and store them as a list of tuples
     rows = c.fetchall()
     
+    print "fetchall the selection: ", rows, "\n"
+    
     #output the row to the screen, row by row
     for r in rows:
         print r[0], r[1]

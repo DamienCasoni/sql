@@ -13,11 +13,13 @@ with sqlite3.connect("cars.db") as connection:
     cursor = connection.cursor()
       
   # create a dictionary of sql queries
-    sql = {'Focus count'    : "SELECT count(make) FROM orders WHERE model = 'Focus'",
-            'Civic count'   : "SELECT count(make) FROM orders WHERE model = 'Civic'",
-            'Ranger count'  : "SELECT count(make) FROM orders WHERE model = 'Ranger'",
-            'Accord count'  : "SELECT count(make) FROM orders WHERE model = 'Accord'",
-            'Avenger count' : "SELECT count(make) FROM orders WHERE model = 'Avenger'",}
+    sql = {
+    'Focus count'    : "SELECT count(make) FROM orders WHERE model = 'Focus'",
+    'Civic count'   : "SELECT count(make) FROM orders WHERE model = 'Civic'",
+    'Ranger count'  : "SELECT count(make) FROM orders WHERE model = 'Ranger'",
+    'Accord count'  : "SELECT count(make) FROM orders WHERE model = 'Accord'",
+    'Avenger count' : "SELECT count(make) FROM orders WHERE model = 'Avenger'",
+    }
 
     # run each sql query item in the dictionary
     for keys, values in sql.iteritems():

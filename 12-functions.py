@@ -14,9 +14,9 @@ with sqlite3.connect("new.db") as connection:
             }
             
     # run each SQL query item in the dictionary
-    for keys, values in sql.iteritems():
+    for keys, instruction in sql.iteritems():
     
-        c.execute(values)
+        c.execute(instruction)
         result = c.fetchone()
         # print result  # retourne un tuple (INT, vide)
         print keys + ":", result[0]

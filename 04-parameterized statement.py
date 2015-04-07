@@ -29,8 +29,8 @@ with sqlite3.connect('test_database.db') as connection:
     """
     # select all first & last names from people over age 30
     c.execute("SELECT FirstName, LastName FROM People WHERE Age > 30")
-    # fetchone() retrieve one result at a time of a SQL query (like read)
-    # fetchall() retrieve all results of a SQL query (like readline)
+    # fetchone() retrieve one result at a time of a SQL query (like readline)
+    # fetchall() retrieve all results of a SQL query (like read)
     for row in c.fetchall():  
         print row  # (u'Ron', u'Obvious')
                    # (u'Luigi', u'Vercotti')

@@ -11,8 +11,10 @@ with sqlite3.connect("new.db") as connection:
     # même si on détaille bien dans SELECT table.colonne
     # il faut quand même préciser FROM tables juste après
     # WHERE clause pour éliminer les duplicatas
-    c.execute("""SELECT DISTINCT population.city, 
-                population.population, regions.region 
+    c.execute("""SELECT DISTINCT 
+                population.city, 
+                population.population, 
+                regions.region 
             FROM population, regions
             WHERE population.city = regions.city 
             ORDER by population.city ASC
